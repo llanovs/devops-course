@@ -1,1 +1,1 @@
-# DevOps homeworks
+# DevOps
