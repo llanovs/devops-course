@@ -51,13 +51,13 @@ def validate_new_password(new_password):
     special_characters = "[@_!#$%^&*()<>?/|}{~:]"
     if len(new_password) < 6:
         raise ValueError("Password length should be at least 6.")
-    elif not bool(re.search(r'\d', new_password)):
+    elif not bool(re.search(r'(?=.*\d)', new_password)):
         raise ValueError("Password should contain at least one digit.")
-    elif not bool(new_password in special_characters.split("")):
+    elif not bool(re.search(r'(?=.*\W)', new_password)):
         raise ValueError("Password should contain at least one special character.")
-    elif not bool(re.search(r'a-z', new_password)):
+    elif not bool(re.search(r'(?=.*[a-z])', new_password)):
         raise ValueError("Password should contain at least one lowercase letter.")
-    elif not bool(re.search(r'A-Z', new_password)):
+    elif not bool(re.search(r'(?=.*[A-Z])', new_password)):
         raise ValueError("Password should contain at least one uppercase letter.")
 
 
